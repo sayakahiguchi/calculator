@@ -1,0 +1,8 @@
+@use "../../Foundation/Variables/shapes" as *;
+@each $type, $obj in $shapes {
+  @each $size, $val in $obj {
+    .u-#{$type}--#{$size} {
+      border-radius: var(--#{$type}--#{$size}, #{$val});
+    }
+  }
+}

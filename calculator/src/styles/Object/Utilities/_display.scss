@@ -1,0 +1,178 @@
+@use "../../Foundation/Functions/index" as *;
+@use "../../Foundation/Mixins/index" as *;
+
+.u-visually-hidden {
+  position: fixed !important;
+  inset: 0 !important;
+  contain: strict !important;
+  visibility: initial !important;
+  inline-size: 4px !important;
+  block-size: 4px !important;
+  margin: unset !important;
+  padding: unset !important;
+  border: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+.u-align-items--baseline {
+  align-items: baseline;
+}
+
+.u-align-items--center {
+  align-items: center;
+}
+
+.u-align-self--center {
+  align-self: center;
+}
+
+.u-align-items--end {
+  align-items: flex-end;
+}
+
+.u-align-items--stretch {
+  align-items: stretch;
+}
+
+.u-justify-items--start {
+  justify-items: start;
+}
+
+.u-justify-items--center {
+  justify-items: center;
+}
+
+.u-justify-content--start {
+  justify-content: start;
+}
+
+.u-justify-content--center {
+  justify-content: center;
+}
+
+.u-justify-items--end {
+  justify-items: end;
+}
+
+.u-justify-items--between {
+  justify-content: space-between;
+}
+
+.u-align-self--start {
+  align-self: self-start;
+}
+
+.u-display--block {
+  display: block;
+}
+
+.u-block--center {
+  display: block;
+  inline-size: fit-content;
+  margin-inline: auto;
+}
+
+.u-block--end {
+  display: block;
+  inline-size: fit-content;
+  margin-inline: auto 0;
+}
+
+.u-display--inline-block {
+  display: inline-block;
+}
+
+.c-display--inline {
+  display: inline;
+}
+
+.u-display--contents {
+  display: contents;
+}
+
+.u-flex {
+  display: flex;
+}
+
+.u-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.u-flex-grow--none {
+  flex-grow: 0;
+}
+
+.u-flex-grow {
+  flex-grow: 1;
+}
+
+.u-flex-no-shrink {
+  flex-shrink: 0;
+}
+
+.u-flex-dir--colmun {
+  flex-direction: column;
+}
+
+.u-visibility-hidden {
+  visibility: hidden;
+}
+
+.u-touch-action--auto {
+  -ms-touch-action: auto;
+  touch-action: auto;
+}
+
+@include media(xs, max) {
+  .u-flex {
+    flex-wrap: wrap;
+  }
+}
+
+@include media(md, max) {
+  .u-hidden--max-md {
+    display: none;
+  }
+
+  .u-display--block-max-md {
+    display: block;
+  }
+
+  .u-flex-basis--full-max-md {
+    flex-basis: 100%;
+  }
+
+  .u-flex-grow--max-md {
+    flex-grow: 1;
+  }
+}
+
+@include media(md) {
+  .u-hidden--min-md {
+    display: none;
+  }
+}
+
+@include media(lg, max) {
+  .u-hidden--max-lg {
+    display: none;
+  }
+}
+
+@include media(lg) {
+  .u-hidden--min-lg {
+    display: none;
+  }
+
+  .u-flex-nowrap--min-lg {
+    flex-wrap: nowrap;
+  }
+}
+@include media(xl, max) {
+  .u-hidden--max-xl {
+    display: none;
+  }
+}

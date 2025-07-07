@@ -1,0 +1,9 @@
+@mixin reduced-motion($prefers-reduced-motion: no-preference) {
+  @if $prefers-reduced-motion == reduce or $prefers-reduced-motion == no-preference {
+    @media (prefers-reduced-motion: no-preference) {
+      @content;
+    }
+  } @else {
+    @error '指定できるのは、以下の値のみです。reduce, no-preference';
+  }
+}

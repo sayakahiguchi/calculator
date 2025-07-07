@@ -1,0 +1,35 @@
+@use "../../Foundation/Variables/colors" as *;
+
+@each $key, $val in $colors {
+  .u-color--#{$key} {
+    color: var(--color--#{$key}, #{$val});
+  }
+  .u-background--#{$key} {
+    --_current-background: var(--color--#{$key}, #{$val});
+    background-color: var(--color--#{$key}, #{$val});
+  }
+}
+
+.u-theme--surface {
+  --_current-background: var(--color--surface);
+  color: var(--color--accent01);
+  background-color: var(--color--surface);
+}
+
+.u-theme--accent02 {
+  --_current-background: var(--color--accent02);
+  color: var(--color--base);
+  background-color: var(--color--accent02);
+}
+
+.u-theme--accent05 {
+  --_current-background: var(--color--accent05);
+  color: var(--color--base);
+  background-color: var(--color--accent05);
+}
+
+.u-theme--line-green {
+  --_current-background: var(--color--line-green);
+  color: var(--color--base);
+  background-color: var(--color--line-green);
+}

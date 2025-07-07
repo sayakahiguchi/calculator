@@ -1,0 +1,150 @@
+@use "sass:math";
+@use "../../Foundation/Mixins/index" as *;
+@use "../../Foundation/Variables/font-familes" as *;
+@use "../../Foundation/Variables/font-sizes" as *;
+@use "../../Foundation/Variables/font-weight" as *;
+@use "../../Foundation/Variables/line-height" as *;
+
+@each $key, $val in $font-families {
+  .u-font--#{$key} {
+    font-family: var(--font--#{$key}, #{$val});
+  }
+}
+
+@each $key, $val in $font-weight {
+  .u-font--#{$key} {
+    font-weight: var(--font--#{$key}, #{$val});
+  }
+}
+
+@each $key, $val in $line-height {
+  .u-leading--#{$key} {
+    line-height: var(--line-height--#{$key}, #{$val});
+  }
+}
+
+.u-font-min--20 {
+  --clamp-font-size--min: 20;
+}
+
+.u-font-max--18 {
+  --clamp-font-size--min: 18;
+}
+
+.u-text--tiny {
+  --clamp-font-size--min: 8;
+  --clamp-font-size--max: 12;
+}
+
+.u-font--2em {
+  font-size: 2em;
+}
+
+.u-font--12 {
+  --clamp-font-size--min: 12;
+  --clamp-font-size--max: 12;
+}
+
+.u-font--12-16 {
+  --clamp-font-size--min: 12;
+  --clamp-font-size--max: 16;
+}
+
+.u-font--14 {
+  --clamp-font-size--min: 14;
+  --clamp-font-size--max: 14;
+}
+
+.u-font--16-20 {
+  --clamp-font-size--min: 16;
+  --clamp-font-size--max: 20;
+}
+
+.u-font--18 {
+  --clamp-font-size--min: 18;
+  --clamp-font-size--max: 18;
+}
+
+.u-font--16 {
+  --clamp-font-size--min: 16;
+  --clamp-font-size--max: 16;
+}
+
+.u-font--20 {
+  --clamp-font-size--min: 20;
+  --clamp-font-size--max: 20;
+}
+
+.u-font--24 {
+  --clamp-font-size--min: 24;
+  --clamp-font-size--max: 24;
+}
+
+.u-font--30 {
+  --clamp-font-size--min: 30;
+  --clamp-font-size--max: 30;
+}
+
+.u-font--40 {
+  --clamp-font-size--min: 40;
+  --clamp-font-size--max: 40;
+}
+
+.u-font--em-125 {
+  font-size: 1.25em;
+}
+
+.u-font--em-150 {
+  font-size: 1.5em;
+}
+
+.u-font--em-1625 {
+  font-size: 1.625em;
+}
+
+.u-font--em-267 {
+  font-size: math.div(64,24) * 1em;
+}
+
+.ec-text-ac,
+.u-text--center {
+  text-align: center;
+}
+
+.u-text--end {
+  text-align: end;
+}
+
+.u-text--uppercase {
+  text-transform: uppercase;
+}
+
+.u-vertical-align--baseline {
+  vertical-align: baseline;
+}
+
+.u-vertical-align--middle {
+  vertical-align: middle;
+}
+
+.u-hover--underline:hover {
+  text-decoration: underline;
+}
+
+.u-text-wrap--wbr {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  line-break: loose;
+}
+
+@include media(md, max) {
+  .u-text--center-max-md {
+    text-align: center;
+  }
+}
+
+@include media(lg) {
+  .u-text--center-lg {
+    text-align: center;
+  }
+}

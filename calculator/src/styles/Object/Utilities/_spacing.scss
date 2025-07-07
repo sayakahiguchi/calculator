@@ -1,0 +1,228 @@
+@use "../../Foundation/Variables/spacing" as *;
+@use "../../Foundation/Mixins/index" as *;
+$_direction: (
+  t: "block-start",
+  b: "block-end",
+  l: "inline-start",
+  r: "inline-end",
+  x: "inline",
+  y: "block",
+  full: "",
+);
+
+@each $dKey, $dVal in $_direction {
+  @if $dVal !="" {
+    .u-m#{$dKey}--em-100 {
+      margin-#{$dVal}: 1em;
+    }
+
+    .u-m#{$dKey}--em-200 {
+      margin-#{$dVal}: 2em;
+    }
+
+    .u-m#{$dKey}--em-100-trim {
+      margin-#{$dVal}: calc(1em + var(--leading-trim));
+    }
+
+    .u-m#{$dKey}--em-200-trim {
+      margin-#{$dVal}: calc(2em + var(--leading-trim));
+    }
+  }
+
+  @else {
+    .u-m--em-100 {
+      margin: 1em;
+    }
+
+    .u-m--em-200 {
+      margin: 2em;
+    }
+  }
+
+  @each $sKey, $val in $spacing {
+    @if $dVal !="" {
+      .u-m#{$dKey}--#{$sKey} {
+        margin-#{$dVal}: var(--spacing--#{$sKey}, #{$val});
+      }
+
+      .u-p#{$dKey}--#{$sKey} {
+        padding-#{$dVal}: var(--spacing--#{$sKey}, #{$val});
+      }
+    }
+
+    @else {
+      .u-m--#{$sKey} {
+        margin: var(--spacing--#{$sKey}, #{$val});
+      }
+
+      .u-p--#{$sKey} {
+        padding: var(--spacing--#{$sKey}, #{$val});
+      }
+    }
+  }
+}
+
+// will scale between 16px at 375px and 24px at 1200px.
+.u-mt--rg-md {
+  margin-block-start: clamp(1rem, 0.773rem + 0.97dvi, 1.5rem);
+}
+.u-mt--rg-md-trim {
+  margin-block-start: calc(clamp(1rem, 0.773rem + 0.97dvi, 1.5rem) + var(--leading-trim));
+}
+
+// will scale between 16px at 375px and 32px at 1200px.s
+.u-mt--rg-lg {
+  margin-block-start: clamp(1rem, 0.545rem + 1.939dvi, 2rem);
+}
+
+// will scale between 24px at 375px and 32px at 1200px.
+.u-mt--md-lg-trim {
+  margin-block-start: calc(clamp(1.5rem, 1.273rem + 0.97dvi, 2rem) + var(--leading-trim));
+}
+.u-my--md-lg-trim {
+  margin-block: calc(clamp(1.5rem, 1.273rem + 0.97dvi, 2rem) + var(--leading-trim));
+}
+.u-py--md-lg-trim {
+  padding-block: calc(clamp(1.5rem, 1.273rem + 0.97dvi, 2rem) + var(--leading-trim));
+}
+.u-px--md-lg {
+  padding-inline: clamp(1.5rem, 1.273rem + 0.97dvi, 2rem);
+}
+
+// will scale between 32px at 375px and 40px at 1200px.
+.u-my--lg-xl {
+  margin-block: clamp(2rem, 1.773rem + 0.97dvi, 2.5rem);
+}
+.u-mt--lg-xl {
+  margin-block-start: clamp(2rem, 1.773rem + 0.97dvi, 2.5rem);
+}
+.u-mt--lg-xl-trim {
+  margin-block-start: calc(clamp(2rem, 1.773rem + 0.97dvi, 2.5rem) + var(--leading-trim));
+}
+.u-pt--lg-xl {
+  padding-block-start: clamp(2rem, 1.773rem + 0.97dvi, 2.5rem);
+}
+
+// will scale between 32px at 375px and 56px at 1200px.
+.u-mt--lg-2xl-trim {
+  margin-block-start: calc(clamp(2rem, 1.318rem + 2.909dvi, 3.5rem) + var(--leading-trim));
+}
+.u-px--lg-2xl {
+  padding-inline: clamp(2rem, 1.318rem + 2.909dvi, 3.5rem);
+}
+
+// will scale between 28px at 375px and 32px at 1200px.
+.u-mt--28-lg {
+  margin-block-start: clamp(1.75rem, 1.636rem + 0.485dvi, 2rem);
+}
+.u-mt--28-lg-trim {
+  margin-block-start: calc(clamp(1.75rem, 1.636rem + 0.485dvi, 2rem) + var(--leading-trim));
+}
+// will scale between 28px at 375px and 48px at 1200px.
+.u-mt--28-xl-trim {
+  margin-block-start: calc(clamp(1.75rem, 1.182rem + 2.424dvi, 3rem) + var(--leading-trim));
+}
+
+// will scale between 28px at 375px and 56px at 1200px.
+.u-mt--30-2xl {
+  margin-block-start: clamp(1.75rem, 0.955rem + 3.394dvi, 3.5rem);
+}
+.u-mt--30-2xl-trim {
+  margin-block-start: calc(clamp(1.75rem, 0.955rem + 3.394dvi, 3.5rem) + var(--leading-trim));
+}
+.u-my--30-2xl {
+  margin-block: clamp(1.75rem, 0.955rem + 3.394dvi, 3.5rem);
+}
+
+// will scale between 40px at 375px and 56px at 1200px.
+.u-mt--xl-2xl {
+  margin-block-start: clamp(2.5rem, 2.045rem + 1.939dvi, 3.5rem);
+}
+.u-my--xl-2xl {
+  margin-block: clamp(2.5rem, 2.045rem + 1.939dvi, 3.5rem);
+}
+.u-mb--xl-2xl-trim {
+  margin-block-end: calc(clamp(2.5rem, 2.045rem + 1.939dvi, 3.5rem) + var(--leading-trim));
+}
+.u-py--xl-2xl {
+  padding-block: clamp(2.5rem, 2.045rem + 1.939dvi, 3.5rem);
+}
+
+// will scale between 40px at 375px and 80px at 1200px.
+.u-py--xl-3xl {
+  padding-block: clamp(2.5rem, 1.364rem + 4.848dvi, 5rem);
+}
+
+// will scale between 60px at 375px and 120px at 1200px.
+.u-py--60-120-trim {
+  padding-block: calc(clamp(3.75rem, 2.045rem + 7.273dvi, 7.5rem) + var(--leading-trim));
+}
+
+// 64px
+.u-mt--rem-400-trim {
+  margin-block-start: calc(4rem + var(--leading-trim));
+}
+
+@each $sKey, $val in $spacing {
+  .u-col-gap--#{$sKey} {
+    column-gap: var(--spacing--#{$sKey}, #{$val});
+  }
+
+  .u-row-gap--#{$sKey} {
+    row-gap: var(--spacing--#{$sKey}, #{$val});
+  }
+}
+
+.u-row-gap--block-gap {
+  row-gap: var(--spacing--block-gap, 0px);
+}
+
+.u-mt--block-gap {
+  margin-block-start: var(--spacing--block-gap, 0px);
+}
+
+.u-mt--block-gap-negative {
+  margin-block-start: calc(var(--spacing--block-gap, 0px) * -1);
+}
+
+.u-mb--block-gap {
+  margin-block-end: var(--spacing--block-gap, 0px);
+}
+
+.u-my--block-gap {
+  margin-block: var(--spacing--block-gap, 0px);
+}
+
+.u-pt--block-gap {
+  padding-block-start: var(--spacing--block-gap, 0px);
+}
+
+.u-pb--block-gap {
+  padding-block-end: var(--spacing--block-gap, 0px);
+}
+
+.u-py--block-gap {
+  padding-block: var(--spacing--block-gap, 0px);
+}
+
+.u-leading-trim {
+  margin-block: var(--leading-trim);
+}
+
+.u-negative-offset--right {
+  margin-inline-end: calc(var(--displace-offset--right) * -1);
+}
+
+.u-negative-offset--left {
+  margin-inline-start: calc(var(--displace-offset--left) * -1);
+}
+
+@include media(md) {
+  .u-negative-offset--right-min-md {
+    margin-inline-end: calc(var(--displace-offset--right) * -1);
+  }
+
+  .u-negative-offset--left-min-md {
+    margin-inline-start: calc(var(--displace-offset--left) * -1);
+  }
+}

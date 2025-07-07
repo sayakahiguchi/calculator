@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calculator</title>
+</head>
+
+<body class="u-background--gray070">
+    <main class="l-container">
+        <div id="calculator" class="c-calculator js-calculator">
+            <div id="calculator-display" class="c-calculator__display" aria-live="polite">0</div>
+            <div id="calculator-keypad" class="c-calculator__controller" role="group" aria-label="calculator keys">
+                <button type="button" class="c-calculator__button u-color--secondary" data-key-type="toggle-sign" value="±">±</button>
+                <button type="button" class="c-calculator__button u-color--secondary" data-key-type="percent" value="%">%</button>
+                <button type="button" class="c-calculator__button u-color--secondary" data-key-type="clear" value="AC">AC</button>
+                <button type="button" class="c-calculator__button" data-key-type="backspace" value="back">←</button>
+
+                <button type="button" class="c-calculator__button" data-key-type="digit" value="7">7</button>
+                <button type="button" class="c-calculator__button" data-key-type="digit" value="8">8</button>
+                <button type="button" class="c-calculator__button" data-key-type="digit" value="9">9</button>
+                <button type="button" class="c-calculator__button u-background--accent01" data-key-type="operator" value="/">÷</button>
+
+                <button type="button" class="c-calculator__button" data-key-type="digit" value="4">4</button>
+                <button type="button" class="c-calculator__button" data-key-type="digit" value="5">5</button>
+                <button type="button" class="c-calculator__button" data-key-type="digit" value="6">6</button>
+                <button type="button" class="c-calculator__button u-background--accent01" data-key-type="operator" value="*">×</button>
+
+                <button type="button" class="c-calculator__button" data-key-type="digit" value="1">1</button>
+                <button type="button" class="c-calculator__button" data-key-type="digit" value="2">2</button>
+                <button type="button" class="c-calculator__button" data-key-type="digit" value="3">3</button>
+                <button type="button" class="c-calculator__button u-background--accent01" data-key-type="operator" value="-">−</button>
+
+                <!-- <button type="button" class="c-calculator__button" data-key-type="double-zero" value="00">00</button> -->
+                <button type="button" class="c-calculator__button" data-key-type="digit"
+                    value="0">0</button>
+                <button type="button" class="c-calculator__button" data-key-type="decimal" value=".">.</button>
+                <button type="button" class="c-calculator__button u-background--accent01" data-key-type="equal" value="=">=</button>
+                <button type="button" class="c-calculator__button u-background--accent01" data-key-type="operator" value="+">+</button>
+
+
+            </div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>

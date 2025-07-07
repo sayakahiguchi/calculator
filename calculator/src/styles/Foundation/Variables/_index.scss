@@ -1,0 +1,94 @@
+@use "../Functions/index" as *;
+@use "../Mixins/index" as *;
+@use "layouts" as *;
+@use "colors" as *;
+@use "font-familes" as *;
+@use "font-sizes" as *;
+@use "font-weight" as *;
+@use "line-height" as *;
+@use "tracking" as *;
+@use "spacing" as *;
+@use "shapes" as *;
+@use "icons" as *;
+@use "durations" as *;
+@use "easings" as *;
+@forward "animation";
+
+:root {
+  --leading-trim: calc((1em - 1lh) / 2);
+  @supports not (top: 1lh) {
+    :root {
+      --leading-trim: calc((1em - var(--line-height--normal) * 1em) / 2);;
+    }
+  }
+  --rem: 0.0625rem;
+  --em: 0.0625em;
+  --clamp-variable-unit: dvi;
+
+  --fluid-ratio-min: calc(1 / var(--layout--width-min) * 100dvi);
+  --fluid-ratio-max: calc(1 / var(--layout--width-max) * 100dvi);
+  --background-current: currentColor;
+
+  @media (forced-colors: active) {
+    :where(:root) {
+      --background-current: CanvasText;
+    }
+  }
+
+  @each $key, $val in $layouts {
+    --layout--#{$key}: #{$val};
+  }
+
+  @each $key, $val in $colors {
+    --color--#{$key}: #{$val};
+  }
+
+  @each $key, $val in $font-families {
+    --font--#{$key}: #{$val};
+  }
+
+  @each $key, $val in $font-sizes {
+    --font-size--#{$key}: #{$val};
+  }
+
+  @each $key, $val in $font-weight {
+    --font--#{$key}: #{$val};
+  }
+
+  @each $key, $val in $line-height {
+    --line-height--#{$key}: #{$val};
+  }
+
+  @each $key, $val in $tracking {
+    --tracking--#{$key}: #{$val};
+  }
+
+  @each $key, $val in $spacing {
+    --spacing--#{$key}: #{$val};
+  }
+
+  @each $type, $obj in $shapes {
+    @each $size, $val in $obj {
+      --#{$type}--#{$size}: #{$val};
+    }
+  }
+
+  @each $key, $val in $icons {
+    --icon--#{$key}: #{$val};
+  }
+
+  @each $key, $val in $durations {
+    --duration--#{$key}: #{$val};
+  }
+
+  @each $key, $val in $easings {
+    --#{$key}: #{$val};
+  }
+}
+
+
+@include media(lg) {
+  :root {
+    --spacing--page-gutter: min(#{toDvi(80px, 1280px), calc(80 * var(--rem))});
+  }
+}

@@ -1,0 +1,21 @@
+@use "../../Foundation/Variables/colors" as *;
+
+@each $key, $val in $colors {
+  .u-border-color--#{$key} {
+    border-color: var(--color--#{$key}, #{$val});
+  }
+}
+.u-border-01-solid {
+  border: 1px solid;
+}
+
+.u-border--none {
+ border: none !important;
+}
+
+.u-bt--none {
+  border-block-start: none;
+}
+.u-bb--none {
+  border-block-end: none;
+}

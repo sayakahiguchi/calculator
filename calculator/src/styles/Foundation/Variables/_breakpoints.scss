@@ -1,0 +1,54 @@
+$breakpoints: (
+  "min": (
+    tiny: (
+      min-width: 280px,
+    ),
+    xs: (
+      min-width: 375px,
+    ),
+    sm: (
+      min-width: 480px,
+    ),
+    md: (
+      min-width: 640px,
+    ),
+    lg: (
+      min-width: 960px,
+    ),
+    xl: (
+      min-width: 1200px,
+    ),
+    2xl: (
+      min-width: 1400px,
+    ),
+    3xl: (
+      min-width: 1920px,
+    ),
+  ),
+  "max": (
+    tiny: (
+      min-width: 279.98px,
+    ),
+    xs: (
+      min-width: 374.98px,
+    ),
+    sm: (
+      min-width: 479.98px,
+    ),
+    md: (
+      min-width: 639.98px,
+    ),
+    lg: (
+      min-width: 959.98px,
+    ),
+    xl: (
+      min-width: 1199.98px,
+    ),
+    2xl: (
+      min-width: 1399.98px,
+    ),
+    3xl: (
+      min-width: 1919.98px,
+    ),
+  ),
+) !default;

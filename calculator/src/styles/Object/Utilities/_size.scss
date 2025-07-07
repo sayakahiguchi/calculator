@@ -1,0 +1,48 @@
+@use "sass:math";
+@use "../../Foundation/Variables/layouts" as *;
+
+/**
+ * Utilities: Sizes
+*/
+// Height
+.u-height--13 {
+  block-size: calc(13 * var(--rem));
+}
+
+.u-height--full {
+  block-size: 100%;
+}
+
+// Width */
+.u-width--em-520 {
+  inline-size: 5.2em;
+}
+
+.u-width--full {
+  inline-size: 100%;
+}
+
+.u-width--max-content {
+  inline-size: max-content;
+  max-inline-size: 100%;
+}
+
+// 1/6
+.u-width--sixth {
+  inline-size: percentage(math.div(1, 6));
+}
+
+// Flex basis
+.u-flex-basis--full {
+  flex-basis: 100%;
+}
+
+.u-aspect-ratio--39-25 {
+  aspect-ratio: 39 / 25;
+}
+
+@each $key, $val in $layouts {
+  .u-max-width--#{$key} {
+    max-inline-size: var(--layout--#{$key}, #{$val});
+  }
+}

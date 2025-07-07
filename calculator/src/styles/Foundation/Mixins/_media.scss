@@ -1,0 +1,28 @@
+@use "sass:map";
+@use "../Variables/breakpoints" as *;
+
+
+@mixin media($breakpoint, $width: min, $print: false) {
+  @if $breakpoint and map.has-key($breakpoints, min, $breakpoint) {
+    @if ($width == "min") {
+      @media screen and #{inspect(map.get($breakpoints, 'min', $breakpoint)) if(media == true, ', print', '')} {
+        @content;
+      }
+    } @else if($width == "max") {
+      @media not all and #{inspect(map.get($breakpoints, 'max', $breakpoint)) if(media == true, ', print', '')} {
+        @content;
+      }
+    } @else {
+      @error "minかmaxを指定してください。";
+    }
+  } @else if($print == true) {
+    @media print {
+      @content;
+    }
+  }
+
+  // マップ型で定義されていない値が呼び出された時はエラーを返す
+  @else {
+    @error "指定されたブレークポイントは定義されていません。"+"指定できるブレークポイントは次のとおりです。 -> #{map.keys($breakpoints)}";
+  }
+}

@@ -1,0 +1,23 @@
+@use "../Functions/index" as *;
+
+$spacing: (
+  none: 0,
+  xs: 0.25rem,
+  sm: 0.5rem,
+  rg: 1rem,
+  md: 1.5rem,
+  lg: 2rem,
+  xl: 2.5rem,
+  2xl: 3.5rem,
+  3xl: 5rem,
+  xs-trim: calc(var(--spacing--xs) + var(--leading-trim, 0)),
+  sm-trim: calc(var(--spacing--sm) + var(--leading-trim, 0)),
+  rg-trim: calc(var(--spacing--rg) + var(--leading-trim, 0)),
+  md-trim: calc(var(--spacing--md) + var(--leading-trim, 0)),
+  lg-trim: calc(var(--spacing--lg) + var(--leading-trim, 0)),
+  xl-trim: calc(var(--spacing--xl) + var(--leading-trim, 0)),
+  2xl-trim: calc(var(--spacing--2xl) + var(--leading-trim, 0)),
+  3xl-trim: calc(var(--spacing--3xl) + var(--leading-trim, 0)),
+  page-gutter: min(#{toDvi(47px, 750px), var(--spacing--xl)}),
+  auto: auto
+);

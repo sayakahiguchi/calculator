@@ -1,0 +1,10 @@
+$shapes: (
+  rounded: (
+    xs: 2px,
+    sm: 4px,
+    md: 8px,
+    lg: 12px,
+    xl: clamp(2rem, 1.489rem + 2.182vw, 3.125rem),
+    full: calc(1px / 0),
+  ),
+);

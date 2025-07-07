@@ -1,0 +1,328 @@
+@use "./Mixins/index" as *;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  min-inline-size: 0;
+  border-width: 0;
+  border-style: solid;
+  font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::backdrop,
+  :after,
+  :before {
+    background-attachment: unset;
+    scroll-behavior: unset;
+    transition-delay: unset;
+    transition-duration: 1ms;
+    animation-duration: 1ms;
+    animation-delay: unset;
+    animation-iteration-count: unset;
+    view-transition-name: none;
+  }
+}
+
+
+:where(:root):has(:where(:modal)) {
+  overflow: hidden;
+}
+
+:where(html) {
+  scroll-behavior: smooth;
+  scroll-padding-block-start: 30dvb;
+}
+
+:where(body) {
+  margin: unset;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
+  min-block-size: 100svb;
+  font-feature-settings: "palt";
+  font-optical-sizing: auto;
+  font-style: unset;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: start;
+  text-spacing-trim: trim-start;
+  word-break: initial;
+  line-break: strict;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scrollbar-gutter: auto;
+  interpolate-size: allow-keywords;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+:where(main, menu, ol, ul, fieldset, figure, p, button, blockquote, figure, pre, address, ul, ol, dl) {
+  margin: unset;
+  padding: unset;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-block: unset;
+  font-weight: unset;
+  font-size: var(--clamp);
+}
+
+ul,
+ol {
+  padding-inline-start: unset;
+  list-style-type: "";
+}
+
+li {
+  list-style: inherit;
+}
+
+table {
+  border-spacing: 0;
+  border: 0;
+  border-collapse: collapse;
+}
+
+figure,
+button {
+  background-color: unset;
+}
+
+em,
+figcaption {
+  font-style: unset;
+  font-weight: unset;
+}
+
+:where(img, picture, svg, video, canvas, audio, iframe, embed, object) {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+@include media(md){
+  :where(a[href^="tel:"]) {
+    pointer-events: none;
+  }
+}
+
+:where(:lang(en)) {
+  --leading-trim: calc((1cap - 1lh) / 2);
+}
+
+:where(:any-link, :enabled, summary) {
+  --is-hover-true: ;
+  --is-hover-false: initial;
+}
+
+@media (any-hover: hover) {
+  :where(:any-link, :enabled, summary):where(:hover) {
+    --is-hover-true: initial;
+    --is-hover-false: ;
+  }
+}
+
+:where(:any-link, :enabled, summary):where(:focus-visible) {
+  --is-hover-true: initial;
+  --is-hover-false: ;
+}
+
+:where(search) {
+  display: block flow;
+}
+
+
+:where(blockquote, figure) {
+  margin-inline: unset;
+}
+
+:where(address):where(:lang(ja)) {
+  font-style: unset;
+}
+
+:where(dt) {
+  font-weight: 700;
+}
+
+:where(dd) {
+  margin-inline-start: unset;
+}
+
+:where(hr) {
+  border-block-start-width: 1px;
+}
+
+:where(pre) {
+  tab-size: 2;
+}
+
+@media print {
+  :where(pre) {
+    white-space: pre-wrap;
+  }
+}
+
+:where(b, strong) {
+  font-weight: 700;
+}
+
+:where(em):where(:lang(ja)) {
+  font-weight: 700;
+}
+
+:where(i, cite, em, dfn, var):where(:lang(ja)) {
+  font-style: unset;
+}
+
+:where(small) {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+:where(code, kbd, samp) {
+  font-family: ui-monospace, sfmono-regular, menlo, monaco, consolas,
+    Liberation Mono, Courier New, serif;
+  font-size: unset;
+}
+
+:where(cite, dfn) {
+  --_quotation-start: "“";
+  --_quotation-end: "”";
+}
+
+:where(cite, dfn):before {
+  content: var(--_quotation-start);
+}
+
+:where(cite, dfn):after {
+  content: var(--_quotation-end);
+}
+
+:where(cite, dfn):where(:lang(ja)) {
+  --_quotation-start: "「";
+  --_quotation-end: "」";
+}
+
+:where(var) {
+  font-family: serif;
+}
+
+:where(var):where(:lang(ja)) {
+  font-family: unset;
+}
+
+@media (forced-colors: none) {
+  :where(mark) {
+    background-color: unset;
+    color: unset;
+    text-decoration-line: underline;
+    text-decoration-color: oklch(from #ff0 l c h / 50%);
+    text-decoration-thickness: 0.4em;
+    text-underline-offset: -0.2em;
+    text-decoration-skip-ink: none;
+  }
+}
+
+:where(:any-link) {
+  color: unset;
+  text-decoration-line: none;
+  text-decoration-thickness: from-font;
+  text-underline-offset: 0.25em;
+  text-decoration-skip-ink: auto;
+}
+
+:where(ins):not(:where(.adsbygoogle)) {
+  text-decoration-style: dashed;
+  text-underline-offset: 0.4em;
+  text-decoration-skip-ink: auto;
+}
+
+:where(del) {
+  text-decoration-style: double;
+}
+
+:where(caption) {
+  text-align: start;
+}
+
+:where(td, th) {
+  font-weight: unset;
+  margin-block: unset;
+  margin-inline: unset;
+  padding: unset;
+  text-align: unset;
+  vertical-align: inherit;
+  overflow-wrap: anywhere;
+}
+
+:where(::file-selector-button,
+button, input, select, textarea) {
+  padding: unset;
+  border: unset;
+  border-radius: unset;
+  background-color: unset;
+  color: unset;
+  font-size: var(--clamp);
+  line-height: unset;
+  vertical-align: baseline;
+  text-align: inherit;
+}
+
+:where(button:not(:disabled)) {
+  cursor: pointer;
+}
+
+select,
+::picker(select) {
+  appearance: none;
+  cursor: pointer;
+}
+
+:where([type="radio" i], [type="checkbox" i]) {
+  margin: unset;
+}
+
+:where([type="file" i]) {
+  cursor: unset;
+}
+
+:where(textarea) {
+  margin-block: unset;
+  resize: block;
+}
+
+::file-selector-button,
+:where(button) {
+  inline-size: fit-content;
+  touch-action: manipulation;
+}
+
+:where(fieldset) {
+  margin-inline: unset;
+  padding: unset;
+}
+
+:where(summary) {
+  display: block flow;
+  cursor: pointer;
+}
+
+::-webkit-details-marker {
+  display: none;
+}
+
+:where(:focus):not(:where(:focus-visible)) {
+  outline: 0;
+}
+
